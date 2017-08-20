@@ -1,0 +1,56 @@
+<template name="information">
+    <div align="right">
+        <a href="#" id="back">HOME</a>
+    </div>
+    <div>
+    <h3><p>Packages used in this project</p></h3>
+    <p>
+        <table>
+            <thead>
+                <th>Package Name</th>
+                <th>Description</th>
+            </thead>
+            <tbody>
+                <tr><td>twbs:bootstrap</td><td>For nice view of links</td></tr>
+                <tr><td>fortawesome:fontawesome </td><td>For Icons</td></tr>
+                <tr><td>kadira:flow-router</td><td>For routing</td></tr>
+                <tr><td>kadira:blaze-layout</td><td>To render Meteor templates.</td></tr>
+                <tr><td>mizzao:jquery-ui</td><td>For embadding jQery in JS </td></tr>
+                <tr><td>session</td><td>Tracking the collapsed and expanded List(s).</td></tr>
+            </tbody>
+        </table>        
+    </p>
+
+    <h3><p>Data Base Structure in Mongo DB.</p></h3>
+    <p>
+        <table>
+            <thead>
+                <th>Col Name</th>
+                <th>Data Type</th>
+                <th>Description</th>
+            </thead>
+            <tbody>
+                <tr><td>Object Id</td><td>ObjectId</td><td>Primary Key column in Mongo DB, this is auto-generated value.</td></tr>
+                <tr><td>Desc</td><td>String</td><td>Description of the Category</td></tr>
+                <tr><td>Value</td><td>String</td><td>Value of the Category i.e. which is displayed in UI.</td></tr>
+                <tr><td>isRoot</td><td>boolean</td><td>Indicates the given node is Top of a Category Tree.</td></tr>
+                <tr><td>Childern</td><td>Array</td><td>Child nodes(list items) of a node(list)</td></tr>
+            </tbody>
+        </table>        
+    </p>
+     <h3>
+        <p>
+            Assumptions: -
+        </p>
+    </h3>
+    <p>
+        <ul>
+            <li>There will only one root node per table, in this case "Categories" will be on top of the list.</li>
+            <li>Every node can have exactly one parent. This way we can avoid diamond relationship.</li>
+        </ul>
+    </p>
+</div>
+<div align="right">
+    <a href="#" id="back">BACK</a>
+</div>
+</template>

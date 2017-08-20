@@ -1,0 +1,49 @@
+<template name="list">
+	{{#if Template.subscriptionsReady}}	
+		<ul>  
+			{{#if haveKid this}}
+				{{#if isCollapsed this}}
+					<a href={{this}} id="collapse">+</a>
+				{{else}}
+					<a href={{this}} id="collapse">-</a>
+				{{/if}}
+			{{/if}}
+				{{getValue this}}
+		      	<a href={{this}} id="addElement">
+		      		<i class="fa fa-plus-square-o" aria-hidden="true"></i>
+		      	</a>
+		      	{{#if haveChildern this}} 
+			      	{{#if first this}}
+			      	<a href={{this}} id="moveDown">
+       					<i class="fa fa-caret-square-o-down" aria-hidden="true"></i>
+    				</a>
+					{{else if last this}}
+						<a href={{this}} id="moveUp">
+							<i class="fa fa-caret-square-o-up" aria-hidden="true"></i>
+    					</a>
+					{{else}}
+						<a href={{this}} id="moveDown">
+       						<i class="fa fa-caret-square-o-down" aria-hidden="true"></i>
+    					</a>
+    					<a href={{this}} id="moveUp">						
+    						<i class="fa fa-caret-square-o-up" aria-hidden="true"></i>
+    					</a>
+					{{/if}}
+				{{/if}}
+				<a href={{this}} id="edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+				{{#if oridinaryNode this}}
+					<a href={{this}} id="delete"><i class="fa fa-window-close-o" aria-hidden="true"></i></a>
+				{{/if}}
+				{{#unless isCollapsed this}}
+					{{#if getChildern this }}
+			           	{{#each getChildern this}}
+			               <li>{{>list this}} </li>
+			           	{{/each}}
+			 		{{/if}}
+			 	{{/unless}}
+		</ul>
+		
+	{{else}}
+			Loading...
+	{{/if}}
+</template>

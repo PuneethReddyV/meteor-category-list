@@ -1,0 +1,25 @@
+<head>
+  <title>category-tree</title>
+</head>
+
+<body>
+
+</body>
+
+<template name="index">
+    <div>
+        <a href="info" id="info">Information</a>
+    </div>
+	{{#if Template.subscriptionsReady}}
+    {{#if root}}
+            <a href="#" id="expandAll">Collapse-All</a>
+            <a href="#" id="collapseAll">Expand-All</a>
+    {{/if}}
+
+       {{#each root}}
+    		{{> list this}}
+		{{/each}}
+    {{else}}
+    	Loading...
+	{{/if}}
+</template>

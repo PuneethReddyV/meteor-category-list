@@ -1,0 +1,40 @@
+<template name="editNode">
+	{{#if Template.subscriptionsReady}}	
+		<form class="form-horizontal node-edit">
+			<div>
+				<label for="value">Value</label>
+				<input type="text" id="value" value={{node.value}}>
+			</div>
+			<div>
+				<label for="desc">Description</label>
+				<input type="text" id="desc" value={{node.desc}}>
+			</div>
+			<div>
+				{{#if haveChildern}}
+					Existing Child Nodes
+					<div>
+						{{#each node.childern}}
+							<input type="checkbox" id="childern" value={{this}} checked>{{getValue this}} 
+						{{/each}}
+					</div>
+				{{/if}}
+			</div>
+			<div>
+				{{#if zombieNodes}}
+					Pick any Zombie Nodes.
+					<div>
+						{{#each zombieNodes}}
+							<input type="checkbox" id="childern" value={{this}}>{{getValue this}} 
+						{{/each}}
+					</div>
+				{{else}}
+					No Zombie node present.
+				{{/if}}
+			</div>
+			<input type="submit" id="btnUpdate" value="Update">
+			<button type="button" id="btnCancel">Cancel</button>
+		</form>
+	{{else}}
+		Loading...
+	{{/if}}
+</template>
